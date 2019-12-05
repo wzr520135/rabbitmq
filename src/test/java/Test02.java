@@ -28,21 +28,22 @@ public class Test02 {
               String msg= new String(message.getBody());
                 System.out.println("收到信息"+msg);
                 for (int i = 0; i <msg.length() ; i++) {
-                     char r=msg.charAt(i);
-                     if('.'==r){
-                         try {
-                             Thread.sleep(1000);
-                         } catch (InterruptedException e) {
-                             e.printStackTrace();
-                         }
-                     }
+                    char r = msg.charAt(i);
+                    if ('.' == r) {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                     System.out.println("信息处理结束");
                      //收到确认(ack) ,给服务器发送回执,确认这条信息处理
                        //DeliveryTag 标签
                     //multiple: true 确认全部信息 false :确认一条信息
                      c.basicAck(message.getEnvelope().getDeliveryTag(),false);
                     System.out.println("*********************");
-                }
+
 
 
 
@@ -56,6 +57,8 @@ public class Test02 {
 
             }
         };
+        //设置qos   在消费数据之前
+         c.basicQos(1);//每次只接受一条信息.消息处理完之前不接受下一条信息
    /**
    * @Author: wzr
    * @Date: 2019/12/5 15:32
