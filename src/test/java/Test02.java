@@ -76,6 +76,7 @@ public class Test02 {
    //消费数据
       //c.basicConsume("helloworld1", true,deliverCallback ,callback );
       //c.basicConsume("helloworld1", false,deliverCallback ,callback );
+        //数据消息持久化之后
       c.basicConsume("helloworld2", false,deliverCallback ,callback );
 
     }

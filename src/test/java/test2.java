@@ -48,7 +48,8 @@ public class test2 {
         */
 
        //定义队列
-       //c.queueDeclare("helloworld1", true, false, false, null);
+       //c.queueDeclare("helloworld1", false, false, false, null);
+            // 队列持久化 如果队里已经存在 队列属性 是不可以修改 要么新建一个队列
        c.queueDeclare("helloworld2", true, false, false, null);
        while (true) {
            System.out.println("输入:");
