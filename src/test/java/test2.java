@@ -12,14 +12,13 @@ import java.util.concurrent.TimeoutException;
 /**
  * @auther wzr
  * @create 2019-12-05 14:32
- * @Description 工作队列模式
+ * @Description 工作队列模式 生产者
  * @return
  */
 
 public class test2 {
 
-   //@Test
-   // public  void testP() throws IOException, TimeoutException {//生产者
+
    public static void main(String[] args) throws IOException, TimeoutException {
 
 
@@ -44,7 +43,7 @@ public class test2 {
        }
 
    }
-   //}
+
 
 
 

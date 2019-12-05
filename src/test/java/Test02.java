@@ -6,7 +6,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * @auther wzr
  * @create 2019-12-05 14:49
- * @Description
+ * @Description 工作模式 消费者
  * @return
  */
 
