@@ -7,6 +7,10 @@ import java.util.concurrent.TimeoutException;
  * @auther wzr
  * @create 2019-12-05 14:49
  * @Description 工作模式 消费者
+ * rabbit默认的是负载均衡的发布信息 但是如果消费者处理一个信息比较久的的时候 下一个信息一样的会发送给这儿消费者
+ *  加上ack确认回执     c.basicAck(message.getEnvelope().getDeliveryTag(),false);
+ *  给服务器发送回执,确认这条信息处理结束 再接受下一个信息 且要在处理数据(消费数据)之前加上
+ *  qos设置  c.basicQos(1);//每次只接受一条信息.消息处理完之前不接受下一条信息
  * @return
  */
 
@@ -43,7 +47,7 @@ public class Test02 {
                     }
                 }
                     System.out.println("信息处理结束");
-                     //收到确认(ack) ,给服务器发送回执,确认这条信息处理
+                     //收到确认(ack) ,给服务器发送回执,确认这条信息处理结束
                        //DeliveryTag 标签
                     //multiple: 一次true 确认全部信息 false :一次确认一条信息
                      c.basicAck(message.getEnvelope().getDeliveryTag(),false);
@@ -80,7 +84,6 @@ public class Test02 {
       c.basicConsume("helloworld2", false,deliverCallback ,callback );
 
     }
-
 
 
 }
