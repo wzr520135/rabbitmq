@@ -21,6 +21,11 @@ public class Test02 {
         //构建信道
         Connection conn = f.newConnection();
         Channel c=conn.createChannel();
+        //定义队列
+        //c.queueDeclare("helloworld1", false, false, false, null);
+        c.queueDeclare("helloworld2", true, false, false, null);
+
+
         //信息处理对象 处理信息
         DeliverCallback deliverCallback=new DeliverCallback() {
             @Override
@@ -70,7 +75,8 @@ public class Test02 {
     */
    //消费数据
       //c.basicConsume("helloworld1", true,deliverCallback ,callback );
-      c.basicConsume("helloworld1", false,deliverCallback ,callback );
+      //c.basicConsume("helloworld1", false,deliverCallback ,callback );
+      c.basicConsume("helloworld2", false,deliverCallback ,callback );
 
     }
 
