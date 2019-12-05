@@ -54,7 +54,7 @@ public class test2 {
            System.out.println("输入:");
            String msg = new Scanner(System.in).nextLine();
            //c.basicPublish("", "helloworld1", null, msg.getBytes());
-            //消息持久化 将null修改
+            //消息持久化 将null修改MessageProperties.PERSISTENT_TEXT_PLAIN
            c.basicPublish("", "helloworld2", MessageProperties.PERSISTENT_TEXT_PLAIN, msg.getBytes());
 
            System.out.println("信息已发送");
