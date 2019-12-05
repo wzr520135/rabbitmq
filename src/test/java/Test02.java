@@ -45,7 +45,7 @@ public class Test02 {
                     System.out.println("信息处理结束");
                      //收到确认(ack) ,给服务器发送回执,确认这条信息处理
                        //DeliveryTag 标签
-                    //multiple: true 确认全部信息 false :确认一条信息
+                    //multiple: 一次true 确认全部信息 false :一次确认一条信息
                      c.basicAck(message.getEnvelope().getDeliveryTag(),false);
                     System.out.println("*********************");
 
