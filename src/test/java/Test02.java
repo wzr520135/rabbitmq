@@ -12,13 +12,16 @@ import java.util.concurrent.TimeoutException;
 
 public class Test02 {
     public static void main(String[] args) throws IOException, TimeoutException {
+       //建立连接
         ConnectionFactory f=new ConnectionFactory();
         f.setHost("192.168.198.5");
         f.setPort(5672);
         f.setUsername("admin");
         f.setPassword("admin");
+        //构建信道
         Connection conn = f.newConnection();
         Channel c=conn.createChannel();
+        //信息处理对象 处理信息
         DeliverCallback deliverCallback=new DeliverCallback() {
             @Override
             public void handle(String consumerTag, Delivery message) throws IOException {
@@ -45,6 +48,7 @@ public class Test02 {
 
             }
         };
+        //取消信息处理回调对象
         CancelCallback callback=new CancelCallback() {
             @Override
             public void handle(String consumerTag) throws IOException {
