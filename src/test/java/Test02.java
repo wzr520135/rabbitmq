@@ -33,7 +33,11 @@ public class Test02 {
                              e.printStackTrace();
                          }
                      }
-                    System.out.println("信息处理结果");
+                    System.out.println("信息处理结束");
+                     //收到确认(ack) ,给服务器发送回执,确认这条信息处理
+                       //DeliveryTag 标签
+                    //multiple: true 确认全部信息 false :确认一条信息
+                     c.basicAck(message.getEnvelope().getDeliveryTag(),false);
                     System.out.println("*********************");
                 }
 
@@ -58,7 +62,8 @@ public class Test02 {
 
     */
    //消费数据
-      c.basicConsume("helloworld1", true,deliverCallback ,callback );
+      //c.basicConsume("helloworld1", true,deliverCallback ,callback );
+      c.basicConsume("helloworld1", false,deliverCallback ,callback );
 
     }
 
