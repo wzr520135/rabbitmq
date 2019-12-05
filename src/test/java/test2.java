@@ -14,7 +14,11 @@ import java.util.concurrent.TimeoutException;
  * @auther wzr
  * @create 2019-12-05 14:32
  * @Description 工作队列模式 生产者
- *
+ *  数据的持久化      分队列持久化  和信息持久化
+ *   队列持久化:
+ *  首先如果队里已经存在 则队里里面的属性不能更改  (一存在的队里不能进行修改属性)
+ *            要新建一个队列  然后将队列durable 这个属性修改为true
+ *   信息持久化      props(默认是null) 将此属性修改为  MessageProperties.PERSISTENT_TEXT_PLAIN
  * @return
  */
 
