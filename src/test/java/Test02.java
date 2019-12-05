@@ -45,10 +45,19 @@ public class Test02 {
             @Override
             public void handle(String consumerTag) throws IOException {
 
+
             }
         };
+   /**
+   * @Author: wzr
+   * @Date: 2019/12/5 15:32
+   * @Description:
+      第二个参数:是否自动确认 ack
+        true :表示服务器发送信息后,会直接删除数据
+        false: -不自动确认,要等待消费者收到确认
 
-
+    */
+   //消费数据
       c.basicConsume("helloworld1", true,deliverCallback ,callback );
 
     }
