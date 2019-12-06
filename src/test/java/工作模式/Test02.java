@@ -1,3 +1,5 @@
+package 工作模式;
+
 import com.rabbitmq.client.*;
 
 import java.io.IOException;

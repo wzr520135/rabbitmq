@@ -1,3 +1,5 @@
+package 路由模式;
+
 import com.rabbitmq.client.*;
 
 import java.io.IOException;

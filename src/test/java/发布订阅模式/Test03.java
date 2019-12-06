@@ -1,3 +1,5 @@
+package 发布订阅模式;
+
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
