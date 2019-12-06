@@ -20,7 +20,7 @@ public class Test4 {
 
     public static void main(String[] args) throws  Exception {
 
-
+  // 建立连接构建通道
         ConnectionFactory f = new ConnectionFactory();
         f.setHost("192.168.198.5");
         f.setPort(5672);
